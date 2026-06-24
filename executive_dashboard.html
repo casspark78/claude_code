@@ -36,9 +36,7 @@
       margin-top: 2px;
     }
 
-    .header-right {
-      text-align: right;
-    }
+    .header-right { text-align: right; }
 
     #clock {
       font-size: 28px;
@@ -53,6 +51,29 @@
       margin-top: 2px;
     }
 
+    /* ── Industry tag strip ── */
+    .industry-bar {
+      display: flex;
+      gap: 8px;
+      padding: 12px 32px;
+      background: #12161f;
+      border-bottom: 1px solid #1e2535;
+    }
+
+    .industry-tag {
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    .tag-market  { background: #1a3a2e; color: #48bb78; border: 1px solid #2d5a3e; }
+    .tag-display { background: #1a3535; color: #4fd1c5; border: 1px solid #2d5050; }
+    .tag-semi    { background: #3a2e1a; color: #f6ad55; border: 1px solid #5a4a1a; }
+    .tag-ai      { background: #2e1a3a; color: #b794f4; border: 1px solid #4a2d5a; }
+
+    /* ── Grid ── */
     .grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -64,8 +85,10 @@
 
     @media (max-width: 900px) {
       .grid { grid-template-columns: 1fr; }
+      .industry-bar { flex-wrap: wrap; }
     }
 
+    /* ── Card ── */
     .card {
       background: #1a1f2e;
       border: 1px solid #2d3748;
@@ -84,21 +107,26 @@
       border-bottom: 1px solid #2d3748;
     }
 
+    .card-accent-market  { border-left: 3px solid #48bb78; }
+    .card-accent-display { border-left: 3px solid #4fd1c5; }
+    .card-accent-semi    { border-left: 3px solid #f6ad55; }
+    .card-accent-ai      { border-left: 3px solid #b794f4; }
+
     .card-icon {
-      width: 32px;
-      height: 32px;
+      width: 34px;
+      height: 34px;
       border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 16px;
+      font-size: 17px;
       flex-shrink: 0;
     }
 
     .icon-market  { background: #1a3a2e; }
-    .icon-industry { background: #1a2a3e; }
-    .icon-global  { background: #2e1a3a; }
-    .icon-tech    { background: #3a2e1a; }
+    .icon-display { background: #1a3535; }
+    .icon-semi    { background: #3a2e1a; }
+    .icon-ai      { background: #2e1a3a; }
 
     .card-title {
       font-size: 15px;
@@ -112,23 +140,22 @@
       margin-top: 1px;
     }
 
+    /* ── Sources ── */
     .sources {
-      padding: 12px 20px;
+      padding: 14px 20px;
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 0;
     }
 
-    .source-group {
-      margin-bottom: 8px;
-    }
+    .source-group { margin-bottom: 12px; }
 
     .source-group-label {
       font-size: 10px;
       text-transform: uppercase;
       letter-spacing: 0.8px;
       color: #4a5568;
-      margin-bottom: 6px;
+      margin-bottom: 7px;
       padding-left: 2px;
     }
 
@@ -156,6 +183,7 @@
       background: #2d3748;
       color: #e2e8f0;
       border-color: #4a5568;
+      transform: translateY(-1px);
     }
 
     .source-link .dot {
@@ -166,10 +194,11 @@
     }
 
     .dot-green  { background: #48bb78; }
-    .dot-blue   { background: #63b3ed; }
-    .dot-purple { background: #9f7aea; }
-    .dot-orange { background: #ed8936; }
+    .dot-cyan   { background: #4fd1c5; }
+    .dot-amber  { background: #f6ad55; }
+    .dot-purple { background: #b794f4; }
 
+    /* ── Tip box ── */
     .tip-box {
       margin: 0 20px 16px;
       padding: 11px 14px;
@@ -178,15 +207,49 @@
       border-radius: 0 6px 6px 0;
       font-size: 12px;
       color: #718096;
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
-    .tip-market   { border-color: #48bb78; }
-    .tip-industry { border-color: #63b3ed; }
-    .tip-global   { border-color: #9f7aea; }
-    .tip-tech     { border-color: #ed8936; }
+    .tip-market  { border-color: #48bb78; }
+    .tip-display { border-color: #4fd1c5; }
+    .tip-semi    { border-color: #f6ad55; }
+    .tip-ai      { border-color: #b794f4; }
 
     .tip-box strong { color: #a0aec0; }
+
+    /* ── Key companies ── */
+    .companies {
+      margin: 0 20px 14px;
+      padding: 10px 14px;
+      background: #161b27;
+      border-radius: 8px;
+      border: 1px solid #252d3d;
+    }
+
+    .companies-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #4a5568;
+      margin-bottom: 7px;
+    }
+
+    .company-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .chip {
+      padding: 3px 9px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    .chip-cyan   { background: #1a3535; color: #81e6d9; }
+    .chip-amber  { background: #3a2e1a; color: #fbd38d; }
+    .chip-purple { background: #2e1a3a; color: #d6bcfa; }
 
     footer {
       text-align: center;
@@ -203,7 +266,7 @@
 <header>
   <div class="header-left">
     <h1>Executive Daily Briefing</h1>
-    <p>경제 · 산업 · 글로벌 · 기술 — 임원을 위한 핵심 정보 허브</p>
+    <p>디스플레이 · 반도체 · AI — 임원을 위한 핵심 정보 허브</p>
   </div>
   <div class="header-right">
     <div id="clock">--:--:--</div>
@@ -211,33 +274,43 @@
   </div>
 </header>
 
+<div class="industry-bar">
+  <span class="industry-tag tag-market">📈 경제 / 시장</span>
+  <span class="industry-tag tag-display">🖥 디스플레이</span>
+  <span class="industry-tag tag-semi">⚙️ 반도체</span>
+  <span class="industry-tag tag-ai">🤖 AI</span>
+</div>
+
 <div class="grid">
 
-  <!-- 1. 경제/시장 동향 -->
-  <div class="card">
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       1. 경제 / 시장 동향
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <div class="card card-accent-market">
     <div class="card-header">
       <div class="card-icon icon-market">📈</div>
       <div>
         <div class="card-title">경제 / 시장 동향</div>
-        <div class="card-subtitle">거시경제 · 주식 · 환율 · 원자재</div>
+        <div class="card-subtitle">거시경제 · 환율 · 원자재 · 수급</div>
       </div>
     </div>
     <div class="sources">
       <div class="source-group">
-        <div class="source-group-label">국내</div>
+        <div class="source-group-label">국내 경제 미디어</div>
         <div class="source-links">
           <a class="source-link" href="https://finance.naver.com" target="_blank"><span class="dot dot-green"></span>네이버 금융</a>
-          <a class="source-link" href="https://www.mk.co.kr" target="_blank"><span class="dot dot-green"></span>매일경제</a>
           <a class="source-link" href="https://www.hankyung.com" target="_blank"><span class="dot dot-green"></span>한국경제</a>
-          <a class="source-link" href="https://www.yna.co.kr/economy" target="_blank"><span class="dot dot-green"></span>연합뉴스 경제</a>
+          <a class="source-link" href="https://www.mk.co.kr" target="_blank"><span class="dot dot-green"></span>매일경제</a>
+          <a class="source-link" href="https://www.etnews.com" target="_blank"><span class="dot dot-green"></span>전자신문</a>
         </div>
       </div>
       <div class="source-group">
         <div class="source-group-label">글로벌 시장</div>
         <div class="source-links">
           <a class="source-link" href="https://www.bloomberg.com/markets" target="_blank"><span class="dot dot-green"></span>Bloomberg Markets</a>
-          <a class="source-link" href="https://finance.yahoo.com" target="_blank"><span class="dot dot-green"></span>Yahoo Finance</a>
+          <a class="source-link" href="https://www.wsj.com/markets" target="_blank"><span class="dot dot-green"></span>WSJ Markets</a>
           <a class="source-link" href="https://www.cnbc.com/markets" target="_blank"><span class="dot dot-green"></span>CNBC Markets</a>
+          <a class="source-link" href="https://finance.yahoo.com" target="_blank"><span class="dot dot-green"></span>Yahoo Finance</a>
         </div>
       </div>
       <div class="source-group">
@@ -246,146 +319,202 @@
           <a class="source-link" href="https://www.bok.or.kr" target="_blank"><span class="dot dot-green"></span>한국은행</a>
           <a class="source-link" href="https://ecos.bok.or.kr" target="_blank"><span class="dot dot-green"></span>ECOS 통계</a>
           <a class="source-link" href="https://www.federalreserve.gov" target="_blank"><span class="dot dot-green"></span>Fed</a>
+          <a class="source-link" href="https://www.imf.org/en/News" target="_blank"><span class="dot dot-green"></span>IMF</a>
         </div>
       </div>
     </div>
     <div class="tip-box tip-market">
-      <strong>활용 팁:</strong> 매일 아침 한국경제 + Bloomberg Markets 2곳만 15분 확인. 환율·유가·미국 선물 3가지 숫자를 기준점으로 삼으면 하루 방향성 파악 가능.
+      <strong>활용 팁:</strong> 디스플레이·반도체는 환율(원/달러)과 DRAM·패널 현물가에 민감. Bloomberg Markets에서 원자재(희토류·네온·크립톤) 동향도 병행 확인 권장.
     </div>
   </div>
 
-  <!-- 2. 산업/경쟁사 뉴스 -->
-  <div class="card">
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       2. 디스플레이 산업
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <div class="card card-accent-display">
     <div class="card-header">
-      <div class="card-icon icon-industry">🏭</div>
+      <div class="card-icon icon-display">🖥</div>
       <div>
-        <div class="card-title">산업 / 경쟁사 뉴스</div>
-        <div class="card-subtitle">업종별 트렌드 · 경쟁사 동향 · 규제 변화</div>
+        <div class="card-title">디스플레이 산업</div>
+        <div class="card-subtitle">OLED · LCD · 마이크로LED · 패널 수급</div>
       </div>
     </div>
     <div class="sources">
       <div class="source-group">
-        <div class="source-group-label">뉴스 큐레이션</div>
+        <div class="source-group-label">국내 전문 미디어</div>
         <div class="source-links">
-          <a class="source-link" href="https://feedly.com" target="_blank"><span class="dot dot-blue"></span>Feedly (AI 필터)</a>
-          <a class="source-link" href="https://news.google.com" target="_blank"><span class="dot dot-blue"></span>Google News</a>
-          <a class="source-link" href="https://www.inoreader.com" target="_blank"><span class="dot dot-blue"></span>Inoreader</a>
+          <a class="source-link" href="https://www.displaydaily.co.kr" target="_blank"><span class="dot dot-cyan"></span>디스플레이데일리</a>
+          <a class="source-link" href="https://www.etnews.com/display" target="_blank"><span class="dot dot-cyan"></span>전자신문 디스플레이</a>
+          <a class="source-link" href="https://www.kdia.org" target="_blank"><span class="dot dot-cyan"></span>KDIA 한국디스플레이산업협회</a>
         </div>
       </div>
       <div class="source-group">
-        <div class="source-group-label">산업별 미디어</div>
+        <div class="source-group-label">글로벌 전문 미디어</div>
         <div class="source-links">
-          <a class="source-link" href="https://www.industrynews.co.kr" target="_blank"><span class="dot dot-blue"></span>인더스트리뉴스</a>
-          <a class="source-link" href="https://www.etnews.com" target="_blank"><span class="dot dot-blue"></span>전자신문</a>
-          <a class="source-link" href="https://www.sedaily.com" target="_blank"><span class="dot dot-blue"></span>서울경제</a>
+          <a class="source-link" href="https://www.displaysupplychain.com" target="_blank"><span class="dot dot-cyan"></span>Display Supply Chain</a>
+          <a class="source-link" href="https://www.oled-info.com" target="_blank"><span class="dot dot-cyan"></span>OLED-Info</a>
+          <a class="source-link" href="https://www.displaydaily.com" target="_blank"><span class="dot dot-cyan"></span>Display Daily</a>
+          <a class="source-link" href="https://www.displaymate.com" target="_blank"><span class="dot dot-cyan"></span>DisplayMate</a>
         </div>
       </div>
       <div class="source-group">
-        <div class="source-group-label">경쟁사 모니터링</div>
+        <div class="source-group-label">시장 조사 / 수급 분석</div>
         <div class="source-links">
-          <a class="source-link" href="https://www.similarweb.com" target="_blank"><span class="dot dot-blue"></span>SimilarWeb</a>
-          <a class="source-link" href="https://alerts.google.com" target="_blank"><span class="dot dot-blue"></span>Google Alerts</a>
-          <a class="source-link" href="https://www.crunchbase.com" target="_blank"><span class="dot dot-blue"></span>Crunchbase</a>
+          <a class="source-link" href="https://www.trendforce.com/news/display" target="_blank"><span class="dot dot-cyan"></span>TrendForce Display</a>
+          <a class="source-link" href="https://omdia.tech.informa.com" target="_blank"><span class="dot dot-cyan"></span>Omdia Display</a>
+          <a class="source-link" href="https://www.sid.org" target="_blank"><span class="dot dot-cyan"></span>SID (학회)</a>
         </div>
       </div>
     </div>
-    <div class="tip-box tip-industry">
-      <strong>활용 팁:</strong> Feedly에 경쟁사 이름 + 핵심 키워드를 등록하면 관련 기사만 자동 모아줌. Google Alerts는 무료로 경쟁사 신규 공시·뉴스를 이메일 알림으로 수신 가능.
+    <div class="companies">
+      <div class="companies-label">주요 경쟁사 모니터링</div>
+      <div class="company-chips">
+        <span class="chip chip-cyan">삼성디스플레이</span>
+        <span class="chip chip-cyan">LG디스플레이</span>
+        <span class="chip chip-cyan">BOE</span>
+        <span class="chip chip-cyan">AUO</span>
+        <span class="chip chip-cyan">Innolux</span>
+        <span class="chip chip-cyan">CSOT</span>
+        <span class="chip chip-cyan">Sharp</span>
+      </div>
+    </div>
+    <div class="tip-box tip-display">
+      <strong>활용 팁:</strong> TrendForce의 월간 패널 가격 리포트(무료 요약)로 LCD·OLED 수급 방향 파악. OLED-Info는 신제품·특허 동향 빠름. SID 학회 발표로 차세대 기술(마이크로LED·QD) 조기 포착 가능.
     </div>
   </div>
 
-  <!-- 3. 글로벌 비즈니스 -->
-  <div class="card">
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       3. 반도체 산업
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <div class="card card-accent-semi">
     <div class="card-header">
-      <div class="card-icon icon-global">🌐</div>
+      <div class="card-icon icon-semi">⚙️</div>
       <div>
-        <div class="card-title">글로벌 비즈니스</div>
-        <div class="card-subtitle">해외 시장 · 지정학 리스크 · 공급망</div>
+        <div class="card-title">반도체 산업</div>
+        <div class="card-subtitle">메모리 · 파운드리 · 장비 · 공급망 규제</div>
       </div>
     </div>
     <div class="sources">
       <div class="source-group">
-        <div class="source-group-label">글로벌 비즈니스 미디어</div>
+        <div class="source-group-label">국내 전문 미디어</div>
         <div class="source-links">
-          <a class="source-link" href="https://www.ft.com" target="_blank"><span class="dot dot-purple"></span>Financial Times</a>
-          <a class="source-link" href="https://www.wsj.com" target="_blank"><span class="dot dot-purple"></span>Wall Street Journal</a>
-          <a class="source-link" href="https://www.economist.com" target="_blank"><span class="dot dot-purple"></span>The Economist</a>
-          <a class="source-link" href="https://hbr.org" target="_blank"><span class="dot dot-purple"></span>Harvard Business Review</a>
+          <a class="source-link" href="https://www.etnews.com/semiconductor" target="_blank"><span class="dot dot-amber"></span>전자신문 반도체</a>
+          <a class="source-link" href="https://www.ksia.or.kr" target="_blank"><span class="dot dot-amber"></span>KSIA 한국반도체산업협회</a>
+          <a class="source-link" href="https://www.hellot.net" target="_blank"><span class="dot dot-amber"></span>헬로티</a>
+          <a class="source-link" href="https://www.thelec.kr" target="_blank"><span class="dot dot-amber"></span>더일렉</a>
         </div>
       </div>
       <div class="source-group">
-        <div class="source-group-label">지정학 / 리스크</div>
+        <div class="source-group-label">글로벌 전문 미디어</div>
         <div class="source-links">
-          <a class="source-link" href="https://www.reuters.com/world" target="_blank"><span class="dot dot-purple"></span>Reuters World</a>
-          <a class="source-link" href="https://www.bbc.com/business" target="_blank"><span class="dot dot-purple"></span>BBC Business</a>
-          <a class="source-link" href="https://www.stratfor.com" target="_blank"><span class="dot dot-purple"></span>Stratfor</a>
+          <a class="source-link" href="https://www.eetimes.com" target="_blank"><span class="dot dot-amber"></span>EE Times</a>
+          <a class="source-link" href="https://semiengineering.com" target="_blank"><span class="dot dot-amber"></span>Semiconductor Engineering</a>
+          <a class="source-link" href="https://semianalysis.com" target="_blank"><span class="dot dot-amber"></span>SemiAnalysis</a>
+          <a class="source-link" href="https://spectrum.ieee.org" target="_blank"><span class="dot dot-amber"></span>IEEE Spectrum</a>
         </div>
       </div>
       <div class="source-group">
-        <div class="source-group-label">무역 / 공급망</div>
+        <div class="source-group-label">시장 조사 / 통상 규제</div>
         <div class="source-links">
-          <a class="source-link" href="https://www.kotra.or.kr" target="_blank"><span class="dot dot-purple"></span>KOTRA</a>
-          <a class="source-link" href="https://www.wto.org/english/news_e" target="_blank"><span class="dot dot-purple"></span>WTO News</a>
-          <a class="source-link" href="https://www.imf.org/en/News" target="_blank"><span class="dot dot-purple"></span>IMF</a>
+          <a class="source-link" href="https://www.trendforce.com/news/dram" target="_blank"><span class="dot dot-amber"></span>TrendForce DRAM</a>
+          <a class="source-link" href="https://www.semi.org/en/news-media-press-releases" target="_blank"><span class="dot dot-amber"></span>SEMI</a>
+          <a class="source-link" href="https://www.semiconductors.org/news" target="_blank"><span class="dot dot-amber"></span>SIA</a>
+          <a class="source-link" href="https://www.bis.doc.gov/index.php/about-bis/newsroom" target="_blank"><span class="dot dot-amber"></span>BIS (미 수출규제)</a>
         </div>
       </div>
     </div>
-    <div class="tip-box tip-global">
-      <strong>활용 팁:</strong> FT·WSJ는 유료지만 월 $20 이내. 주 1회 The Economist 읽기만으로 글로벌 맥락 유지 가능. KOTRA는 해외 진출 시 무료 현지 리포트 제공.
+    <div class="companies">
+      <div class="companies-label">주요 경쟁사 모니터링</div>
+      <div class="company-chips">
+        <span class="chip chip-amber">삼성전자 DS</span>
+        <span class="chip chip-amber">SK하이닉스</span>
+        <span class="chip chip-amber">TSMC</span>
+        <span class="chip chip-amber">인텔</span>
+        <span class="chip chip-amber">마이크론</span>
+        <span class="chip chip-amber">NVIDIA</span>
+        <span class="chip chip-amber">ASML</span>
+        <span class="chip chip-amber">Qualcomm</span>
+      </div>
+    </div>
+    <div class="tip-box tip-semi">
+      <strong>활용 팁:</strong> SemiAnalysis는 파운드리·HBM 기술 심층 분석이 탁월(유료 가치 높음). BIS 수출규제 페이지는 북마크 필수 — 미국 대중 규제가 공급망에 즉각 영향. TrendForce DRAM 스팟가로 메모리 경기 방향 선행 파악 가능.
     </div>
   </div>
 
-  <!-- 4. 기술/AI 트렌드 -->
-  <div class="card">
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       4. AI 산업
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <div class="card card-accent-ai">
     <div class="card-header">
-      <div class="card-icon icon-tech">🤖</div>
+      <div class="card-icon icon-ai">🤖</div>
       <div>
-        <div class="card-title">기술 / AI 트렌드</div>
-        <div class="card-subtitle">AI 동향 · 디지털 전환 · 스타트업 생태계</div>
+        <div class="card-title">AI 산업</div>
+        <div class="card-subtitle">LLM · AI 인프라 · 엣지AI · 규제 동향</div>
       </div>
     </div>
     <div class="sources">
       <div class="source-group">
-        <div class="source-group-label">AI / 테크 뉴스</div>
+        <div class="source-group-label">국내 AI 미디어</div>
         <div class="source-links">
-          <a class="source-link" href="https://techcrunch.com" target="_blank"><span class="dot dot-orange"></span>TechCrunch</a>
-          <a class="source-link" href="https://www.technologyreview.com" target="_blank"><span class="dot dot-orange"></span>MIT Tech Review</a>
-          <a class="source-link" href="https://www.theverge.com" target="_blank"><span class="dot dot-orange"></span>The Verge</a>
-          <a class="source-link" href="https://venturebeat.com/ai" target="_blank"><span class="dot dot-orange"></span>VentureBeat AI</a>
+          <a class="source-link" href="https://www.aitimes.com" target="_blank"><span class="dot dot-purple"></span>AI타임스</a>
+          <a class="source-link" href="https://www.bloter.net" target="_blank"><span class="dot dot-purple"></span>블로터</a>
+          <a class="source-link" href="https://www.aitimes.kr" target="_blank"><span class="dot dot-purple"></span>인공지능신문</a>
+          <a class="source-link" href="https://zdnet.co.kr" target="_blank"><span class="dot dot-purple"></span>ZDNet Korea</a>
         </div>
       </div>
       <div class="source-group">
-        <div class="source-group-label">국내 테크</div>
+        <div class="source-group-label">글로벌 AI 뉴스</div>
         <div class="source-links">
-          <a class="source-link" href="https://www.bloter.net" target="_blank"><span class="dot dot-orange"></span>블로터</a>
-          <a class="source-link" href="https://platum.kr" target="_blank"><span class="dot dot-orange"></span>플래텀</a>
-          <a class="source-link" href="https://www.aitimes.com" target="_blank"><span class="dot dot-orange"></span>AI타임스</a>
-          <a class="source-link" href="https://zdnet.co.kr" target="_blank"><span class="dot dot-orange"></span>ZDNet Korea</a>
+          <a class="source-link" href="https://venturebeat.com/ai" target="_blank"><span class="dot dot-purple"></span>VentureBeat AI</a>
+          <a class="source-link" href="https://www.technologyreview.com/topic/artificial-intelligence" target="_blank"><span class="dot dot-purple"></span>MIT Tech Review AI</a>
+          <a class="source-link" href="https://techcrunch.com/category/artificial-intelligence" target="_blank"><span class="dot dot-purple"></span>TechCrunch AI</a>
+          <a class="source-link" href="https://www.thebatch.ai" target="_blank"><span class="dot dot-purple"></span>The Batch (DeepLearning.AI)</a>
         </div>
       </div>
       <div class="source-group">
-        <div class="source-group-label">리서치 / 인사이트</div>
+        <div class="source-group-label">빅테크 / 연구소 동향</div>
         <div class="source-links">
-          <a class="source-link" href="https://www.gartner.com/en/newsroom" target="_blank"><span class="dot dot-orange"></span>Gartner</a>
-          <a class="source-link" href="https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights" target="_blank"><span class="dot dot-orange"></span>McKinsey Digital</a>
-          <a class="source-link" href="https://www.bcg.com/publications/latest" target="_blank"><span class="dot dot-orange"></span>BCG Insights</a>
+          <a class="source-link" href="https://openai.com/news" target="_blank"><span class="dot dot-purple"></span>OpenAI</a>
+          <a class="source-link" href="https://www.anthropic.com/news" target="_blank"><span class="dot dot-purple"></span>Anthropic</a>
+          <a class="source-link" href="https://ai.google/discover/research" target="_blank"><span class="dot dot-purple"></span>Google AI</a>
+          <a class="source-link" href="https://huggingface.co/blog" target="_blank"><span class="dot dot-purple"></span>Hugging Face</a>
+        </div>
+      </div>
+      <div class="source-group">
+        <div class="source-group-label">경영 인사이트 / 규제</div>
+        <div class="source-links">
+          <a class="source-link" href="https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights" target="_blank"><span class="dot dot-purple"></span>McKinsey Digital</a>
+          <a class="source-link" href="https://www.bcg.com/publications/latest" target="_blank"><span class="dot dot-purple"></span>BCG Insights</a>
+          <a class="source-link" href="https://aiindex.stanford.edu" target="_blank"><span class="dot dot-purple"></span>Stanford AI Index</a>
+          <a class="source-link" href="https://digital-strategy.ec.europa.eu/en/policies/european-approach-artificial-intelligence" target="_blank"><span class="dot dot-purple"></span>EU AI Act</a>
         </div>
       </div>
     </div>
-    <div class="tip-box tip-tech">
-      <strong>활용 팁:</strong> Gartner Hype Cycle(연 1회 무료 공개)로 기술 성숙도 파악. McKinsey·BCG 리포트는 무료로 경영진 수준의 AI 전략 인사이트 제공. 임원 발표 자료에 바로 활용 가능.
+    <div class="companies">
+      <div class="companies-label">주요 플레이어 모니터링</div>
+      <div class="company-chips">
+        <span class="chip chip-purple">OpenAI</span>
+        <span class="chip chip-purple">Anthropic</span>
+        <span class="chip chip-purple">Google DeepMind</span>
+        <span class="chip chip-purple">Meta AI</span>
+        <span class="chip chip-purple">NVIDIA</span>
+        <span class="chip chip-purple">네이버 클로바</span>
+        <span class="chip chip-purple">카카오 AI</span>
+      </div>
+    </div>
+    <div class="tip-box tip-ai">
+      <strong>활용 팁:</strong> The Batch(주간 뉴스레터)는 딥러닝.AI가 엄선 — 임원이 읽기 좋은 분량. Stanford AI Index(연간)로 AI 투자·논문·규제 글로벌 현황 파악. EU AI Act는 글로벌 AI 규제 기준점이므로 분기 1회 체크 권장.
     </div>
   </div>
 
 </div>
 
 <footer>
-  Executive Daily Briefing — 일반 공개 정보 기반 · 회사 내부 데이터 없음 · 보안 안전
+  Executive Daily Briefing — 디스플레이 · 반도체 · AI 특화 · 공개 정보 기반 · 보안 안전
 </footer>
 
 <script>
   function pad(n) { return String(n).padStart(2, '0'); }
-
   const DAYS = ['일', '월', '화', '수', '목', '금', '토'];
 
   function tick() {
