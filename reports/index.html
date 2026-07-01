@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>오늘의 운세 아카이브 🔮</title>
+  <style>
+  :root{--bg:#0f0c29;--bg2:#302b63;--bg3:#24243e;--card:rgba(255,255,255,.08);
+    --border:rgba(255,255,255,.18);--text:#f5f3ff;--muted:#c7c3e0;--accent:#ffd76b;--accent2:#b388ff}
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100vh;color:var(--text);
+    font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+    background:linear-gradient(135deg,var(--bg),var(--bg2),var(--bg3));background-attachment:fixed;
+    display:flex;justify-content:center;padding:28px 16px 56px}
+  .container{width:100%;max-width:560px}
+  .hero{text-align:center;margin-bottom:22px}
+  .hero h1{font-size:2rem;margin:8px 0 4px}
+  .today{color:var(--muted);margin:0}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:24px;
+    margin-bottom:18px;backdrop-filter:blur(10px);box-shadow:0 8px 30px rgba(0,0,0,.25)}
+  .result-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+  .result-head h2{margin:0;font-size:1.2rem}
+  .score{font-size:1.15rem;letter-spacing:2px;color:var(--accent)}
+  .summary{margin:0 0 18px;padding:14px 16px;border-left:3px solid var(--accent);
+    background:rgba(255,255,255,.05);border-radius:8px;line-height:1.6}
+  .fortunes{list-style:none;margin:0 0 18px;padding:0}
+  .fortunes li{padding:12px 0;border-bottom:1px dashed var(--border)}
+  .fortunes li:last-child{border-bottom:none}
+  .fortunes .cat{display:flex;align-items:center;justify-content:space-between;font-weight:700;margin-bottom:4px}
+  .fortunes .stars{color:var(--accent);letter-spacing:1px}
+  .fortunes .desc{color:var(--muted);line-height:1.55;font-size:.95rem}
+  .lucky{display:flex;gap:10px;margin-bottom:6px}
+  .lucky-item{flex:1;text-align:center;padding:14px 8px;background:rgba(255,255,255,.05);border-radius:12px}
+  .lucky-label{display:block;font-size:.75rem;color:var(--muted);margin-bottom:6px}
+  .lucky-item strong{font-size:1.05rem}
+  .foot{text-align:center;color:var(--muted);opacity:.8;margin-top:8px}
+  .foot a{color:var(--accent2)}
+  .archive{list-style:none;margin:0;padding:0}
+  .archive li{border-bottom:1px dashed var(--border)}
+  .archive li:last-child{border-bottom:none}
+  .archive a{display:flex;justify-content:space-between;padding:14px 4px;color:var(--text);
+    text-decoration:none;font-weight:600}
+  .archive a:hover{color:var(--accent)}
+  .archive .date-stars{color:var(--accent);font-weight:400}
+</style>
+</head>
+<body>
+  <main class="container">
+    <header class="hero">
+      <h1>🔮 오늘의 운세 아카이브</h1>
+      <p class="today">매일 아침 7시에 새 운세가 올라와요</p>
+    </header>
+    <section class="card">
+      <ul class="archive">
+        <li><a href="./2026-07-01.html"><span>2026-07-01 (수)</span><span class="date-stars">★★★☆☆</span></a></li>
+      </ul>
+    </section>
+    <footer class="foot"><small>재미로만 봐주세요 😊</small></footer>
+  </main>
+</body>
+</html>
