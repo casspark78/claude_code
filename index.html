@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>오늘의 운세 🔮</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="hero">
+      <h1>🔮 오늘의 운세</h1>
+      <p class="today" id="today"></p>
+    </header>
+
+    <section class="card" id="form-card">
+      <label class="field">
+        <span>이름</span>
+        <input type="text" id="name" placeholder="이름을 입력하세요" autocomplete="name" />
+      </label>
+      <label class="field">
+        <span>생년월일 (선택)</span>
+        <input type="date" id="birth" />
+      </label>
+      <button id="draw-btn" type="button">운세 보기 ✨</button>
+    </section>
+
+    <section class="card result" id="result" hidden>
+      <div class="result-head">
+        <h2 id="greeting"></h2>
+        <div class="score" id="score" aria-label="오늘의 종합 점수"></div>
+      </div>
+
+      <blockquote class="summary" id="summary"></blockquote>
+
+      <ul class="fortunes" id="fortunes"></ul>
+
+      <div class="lucky">
+        <div class="lucky-item">
+          <span class="lucky-label">행운의 숫자</span>
+          <strong id="lucky-number"></strong>
+        </div>
+        <div class="lucky-item">
+          <span class="lucky-label">행운의 색</span>
+          <strong id="lucky-color"></strong>
+        </div>
+        <div class="lucky-item">
+          <span class="lucky-label">행운의 방향</span>
+          <strong id="lucky-direction"></strong>
+        </div>
+      </div>
+
+      <button id="share-btn" type="button" class="ghost">결과 복사하기 📋</button>
+    </section>
+
+    <footer class="foot">
+      <small>같은 날에는 항상 같은 운세가 나와요. 재미로만 봐주세요 😊</small>
+    </footer>
+  </main>
+
+  <script src="fortune.js"></script>
+</body>
+</html>
