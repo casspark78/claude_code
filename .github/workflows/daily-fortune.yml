@@ -1,0 +1,46 @@
+name: Daily Fortune Report
+
+on:
+  schedule:
+    # 매일 22:00 UTC = 07:00 KST(한국시간) 실행
+    # (GitHub 예약 워크플로는 기본 브랜치에서만 동작합니다)
+    - cron: "0 22 * * *"
+  # Actions 탭에서 수동 실행도 가능
+  workflow_dispatch:
+
+# 생성한 리포트를 커밋/푸시하기 위한 쓰기 권한
+permissions:
+  contents: write
+
+# 동시 실행 방지
+concurrency:
+  group: daily-fortune
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Generate today's fortune report
+        run: node generate-report.js
+
+      - name: Commit & push report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/
+          if git diff --staged --quiet; then
+            echo "변경 사항 없음 - 커밋 건너뜀"
+          else
+            DATE_KST=$(TZ=Asia/Seoul date +%Y-%m-%d)
+            git commit -m "🔮 오늘의 운세 리포트 (${DATE_KST})"
+            git push
+          fi
