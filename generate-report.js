@@ -178,4 +178,9 @@ function main() {
   console.log(`Generated reports/${reportFile} and reports/index.html (${entries.length} entries)`);
 }
 
-main();
+// 직접 실행할 때만 리포트를 생성 (require 로 함수만 재사용 가능하도록)
+if (require.main === module) {
+  main();
+}
+
+module.exports = { renderReportHTML, renderArchiveHTML, formatKoreanDate, kstNow };
